@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="reset.css">
+    <title>Exercício 5 - Lista 4</title>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <h1>Veja se sua compra está apta para o SUPER DESCONTO!</h1>
+        <span>40% de desconto!</span>
+        <a href="./index.html"><img class="casa" src="icons8-home.svg" alt="Imagem de home"></a>
+    </header>
+
+    <div class="secao">
+        <span class="span">Informe o valor da compra:</span>
+        <input class="caixa" type="number" id="valor">
+
+        <span class="span">Você é cliente VIP?</span>
+        <select class="selecao" id="vip">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <span class="span">Você possui cupom?</span>
+        <select class="selecao" id="cupom">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <span class="span">Você possui parcelas atrasadas?</span>
+        <select class="selecao" id="parcelas">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+        <span class="resposta" id="resultado"></span>
+
+        <button class="botao" onclick="verificar()">Verificar</button>
+
+    </div>
+
+    <script>
+        function verificar() {
+            var resultado = document.getElementById("resultado");
+            var valor = document.getElementById("valor").value;
+            var resposta;
+            let vip = document.getElementById("vip").value;
+            let cupom = document.getElementById("cupom").value;
+            let parcelas = document.getElementById("parcelas").value;
+            resultado.classList.remove("erro")
+
+            if (vip === "" || cupom === "" || valor === "" || parcelas === "") {
+                resultado.innerHTML = "Confira se utilizou credenciais válidas";
+                resultado.classList.add("erro")
+
+            } else if (vip === "sim" && valor < 500) {
+                resultado.innerText = "A compra não possui o valor mínimo para desconto.";
+            } else if (vip === "nao" && parcelas === "sim") {
+                resultado.innerHTML = "Não é possível ganhar desconto com parcelas atrasadas.";
+            } else if (vip === "nao" && cupom === "nao") {
+                resultado.innerHTML = "Não é possível ganhar desconto sem cupom.";
+            } else if (valor >= 500 && vip === "sim" || parcelas === "nao" && cupom === "sim") {
+                resposta = valor * 0.4;
+                resultado.innerHTML = "Seu desconto foi aplicado! O valor da compra com desconto é: " + resposta + " reais.";
+            }
+
+
+        }
+
+    </script>
+</body>
+</html>

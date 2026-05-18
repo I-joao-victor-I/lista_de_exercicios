@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="reset.css">
+    <title>Exercício 5 - Lista 4</title>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <h1>Veja se consegue retirar um empréstimo!</h1>
+        <a href="./index.html"><img class="casa" src="icons8-home.svg" alt="Imagem de home"></a>
+    </header>
+
+    <div class="secao">
+        <span class="span">Informe seu salário:</span>
+        <input class="caixa" type="number" id="salario">
+
+        <span class="span">Você possui fiador?</span>
+        <select class="selecao" name="" id="fiador">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <span class="span">Você possui nome sujo?</span>
+        <select class="selecao" name="" id="nomeSujo">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+        <span class="resposta" id="resultado"></span>
+
+        <button class="botao" onclick="verificar()">Verificar</button>
+
+    </div>
+
+    <script>
+        function verificar() {
+            var resultado = document.getElementById("resultado");
+            var salario = document.getElementById("salario").value;
+            let fiador = document.getElementById("fiador").value;
+            let nomeSujo = document.getElementById("nomeSujo").value;
+            resultado.classList.remove("erro")
+
+            if (fiador === "" || nomeSujo === "" || salario === "") {
+                resultado.innerHTML = "Confira se utilizou credenciais válidas"
+                resultado.classList.add("erro")
+
+            } else if (nomeSujo === "sim") {
+                resultado.innerText = "Pessoas com nome sujo não conseguem fazer empréstimos. Serasa agradece."
+            } else if (salario < 2000 && fiador === "nao") {
+                resultado.innerHTML = "Não possui salário mínimo para o empréstimo."
+            } else if (salario >= 2000 && nomeSujo === "nao" || salario < 2000 && fiador ==="sim") {
+                resultado.innerHTML = "Seu empréstimo foi aceito!"
+            }
+
+
+        }
+
+    </script>
+</body>
+</html>

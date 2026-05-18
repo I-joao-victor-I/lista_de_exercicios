@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Exercício 4 - Lista 4</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>Veja se seu currículo será aprovado!</h1>
+        <a href="./index.html"><img class="casa" src="icons8-home.svg" alt="Imagem de home"></a>
+    </header>
+
+    <div class="secao">
+        <span class="span">Informe sua idade:</span>
+        <input class="caixa" type="number" id="idade">
+
+        <span class="span">Você sabe Java Script?</span>
+        <select class="selecao" name="" id="js">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+
+        <span class="span">Você sabe Python?</span>
+        <select class="selecao" name="" id="python">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+        <span class="resposta" id="resultado"></span>
+
+        <button class="botao" onclick="verificar()">Verificar</button>
+
+    </div>
+
+    <script>
+        function verificar() {
+            var resultado = document.getElementById("resultado");
+            var idade = document.getElementById("idade").value;
+            let js = document.getElementById("js").value;
+            let python = document.getElementById("python").value;
+            resultado.classList.remove("erro")
+
+            if (js === "" || python === "" || idade === "") {
+                resultado.innerHTML = "Selecione um número válido"
+                resultado.classList.add("erro")
+
+            } else if (idade < 18) {
+                resultado.innerHTML = "Não possui idade mínima para a vaga."
+            } else if (js === "nao" && python === "nao") {
+                resultado.innerText = "Não possui as habilidades requisitadas pela vaga."
+            } else if (js === "sim" || python === "sim") {
+                resultado.innerHTML = "Seu curriculo foi aceito!"
+            }
+
+
+        }
+
+    </script>
+</body>
+</html>

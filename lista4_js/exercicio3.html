@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="reset.css">
+    <title>Exercício 3 - Lista 4</title>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <h1>Veja se o produto está esgotado!</h1>
+        <a href="./index.html"><img class="casa" src="icons8-home.svg" alt="Imagem de home"></a>
+    </header>
+
+    <div class="secao">
+        <span class="span">O produto esgotou?</span>
+        <select class="selecao" name="" id="produto">
+            <option value="">Escolha</option>
+            <option value="sim">Sim</option>
+            <option value="nao">Não</option>
+        </select>
+        <span class="resposta" id="resultado"></span>
+        <button class="botao" onclick="verificar()">Verificar</button>
+
+    </div>
+
+    <script>
+        function verificar() {
+            var resultado = document.getElementById("resultado");
+            let resposta = document.getElementById("produto").value;
+            resultado.classList.remove("erro")
+
+            if (resposta === "") {
+                resultado.innerHTML = "Selecione um número válido"
+                resultado.classList.add("erro")
+
+            } else if (resposta === "sim") {
+                resultado.innerHTML = "Por favor reabasteça o estoque"
+            } else if (resposta === "nao") {
+                resultado.innerText = "Produto disponível para venda"
+
+            }
+
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+body {
+    background-color: rgb(71, 70, 70);
+}
+
+header {
+    background-color: rgb(25, 25, 25);
+    height: 6vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow: hidden;
+}
+
+.casa {
+    transition: 0.3ms;
+}
+
+.casa:hover {
+    transform: scale(1.1)
+}
+
+.secao {
+    display: flex;
+    flex-direction: column;
+    max-width: 30%;
+    justify-content: center;
+    margin-left: 30%;
+    margin-top: 2vh;
+    gap: 10px;
+}
+
+.caixa {
+    border: 3px, solid black;
+    border-radius: 8px;
+    border-color: rgb(0, 0, 0);
+    background-color: black;
+    padding: 5px;
+}
+
+.botao {
+    background-color: black;
+    border: 3px solid black;
+    border-radius: 8px;
+    transition: 0.3s;
+    color: white;
+    padding: 5px 20px;
+}
+
+.botao:hover {
+    transform: scale(1.1);
+    background-color: rgb(41, 41, 41);
+}
+
+.selecao {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 70%;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: #1e1e1e;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+option {
+    background-color: #1e1e1e;
+    border: 2px solid black;
+    border-radius: 8px;
+}
+
+.span {
+    font-size: 18px;
+}
+
+.resposta {
+    align-self: center;
+}
+
+.erro {
+    color: red;
+}
+/* Estilização do Index.html */
+.setor{
+    gap: 10px;
+    max-width: 40%;
+    margin-left: 30%;
+    margin-top: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
