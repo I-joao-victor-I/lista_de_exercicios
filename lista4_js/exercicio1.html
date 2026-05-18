@@ -17,9 +17,9 @@
     </header>
 
     <div class="secao">
-        <span class="span">Informe a nota do aluno(0 a 10):</span>
+        <span class="span">Informe a nota do aluno (0 a 10):</span>
         <input class="caixa" id="nota" type="number">
-        <span class="span">Informe a frequencia do aluno:</span>
+        <span class="span">Informe a frequencia do aluno (%):</span>
         <input class="caixa" id="frequencia" type="number">
         <span class="resposta" id="resultado"></span>
         <button class="botao" onclick="verificar()">Verificar se o aluno passou de ano</button>
@@ -39,18 +39,11 @@
         } else if (nota >= 7 && frequencia >= 75) {
             resultado.innerHTML = "Aluno passou";
 
+        } else if (nota < 7 && frequencia < 75) {
+            resultado.innerHTML = "Aluno reprovou"
         }
     }
 
 </script>
-<style>
-    .questionario {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 50%;
-        border: 2px solid black;
-    }
-</style>
 
 </html>
