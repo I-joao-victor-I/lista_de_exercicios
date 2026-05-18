@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nota</title>
+</head>
+
+<body>
+    <div class="questionario">
+        <span>Informe a nota do aluno(0 a 10):</span>
+        <input id="nota" type="number">
+        <span>Informe a frequencia do aluno:</span>
+        <input id="frequencia" type="number">
+        <span id="resultado"></span>
+        <button onclick="verificar()">Verificar se o aluno passou de ano</button>
+    </div>
+
+</body>
+<script>
+    function verificar() {
+        var nota = document.getElementById("nota").value
+        var frequencia = document.getElementById("frequencia").value
+        var resultado = document.getElementById("resultado")
+
+        if (nota == "" || frequencia == "") {
+            alert("Insira valores válidos")
+            resultado.innerHTML = "Insira valores válidos"
+        } else if (nota >= 7 && frequencia >= 75) {
+            alert("aluno passou")
+            resultado.innerHTML = "Aluno passou"
+
+        }
+    }
+
+</script>
+<style>
+    .questionario{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50%;
+        border: 2px solid black;
+    }
+</style>
+
+</html>
