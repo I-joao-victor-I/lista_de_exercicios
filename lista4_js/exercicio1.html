@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="reset.css">
+    <title>Exercício 1 - Lista 4</title>
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <h1>Veja se passou de ano!</h1>
+        <a href="index.html"><img class="casa" src="icons8-home.svg" alt="Imagem de uma casa"></a>
+    </header>
+
+    <div class="secao">
+        <span class="span">Informe a nota do aluno(0 a 10):</span>
+        <input class="caixa" id="nota" type="number">
+        <span class="span">Informe a frequencia do aluno:</span>
+        <input class="caixa" id="frequencia" type="number">
+        <span class="resposta" id="resultado"></span>
+        <button class="botao" onclick="verificar()">Verificar se o aluno passou de ano</button>
+    </div>
+
+</body>
+<script>
+    function verificar() {
+        var nota = document.getElementById("nota").value;
+        var frequencia = document.getElementById("frequencia").value;
+        var resultado = document.getElementById("resultado");
+        resultado.classList.remove("erro")
+
+        if (nota == "" || frequencia == "") {
+            resultado.innerHTML = "Insira valores válidos";
+            resultado.classList.add("erro");
+        } else if (nota >= 7 && frequencia >= 75) {
+            resultado.innerHTML = "Aluno passou";
+
+        }
+    }
+
+</script>
+<style>
+    .questionario {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        max-width: 50%;
+        border: 2px solid black;
+    }
+</style>
+
+</html>
