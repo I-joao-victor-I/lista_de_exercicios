@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 5 - exercício 3</title>
+</head>
+
+<body>
+    <header>
+        <h1>Soma de números até chegar no 1</h1>
+    </header>
+    <div class="secao">
+        <span>Insira um número:</span>
+        <input class="caixa" id="n1" type="number">
+        <button class="botao" onclick="Resultado()">Ver resultado</button>
+        <h3 id="numeroConta"></h3>
+        <span class="resultado" id="resposta"></span>
+    </div>
+    <script>
+        async function Resultado() {
+            const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+            var n1 = Number(document.getElementById("n1").value);
+            var resposta = document.getElementById("resposta");
+            var numeroConta = document.getElementById("numeroConta")
+            var soma = 0;
+            var i = n1;
+
+            if (n1 == "") {
+                resposta.innerHTML = "Insira um número válido";
+            } else {
+                while (i >= 0) {
+                    await delay(2000);
+                    soma = soma + i;
+                    resposta.innerHTML = soma;
+                    numeroConta.innerHTML = "A soma atual é de: " + i;
+                    i--;
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
