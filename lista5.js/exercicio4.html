@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="secao">
+        <span>Digite sua senha (apenas números):</span>
+        <input class="caixa" id="senha" type="number">
+        <button onclick="Verificar()" class="botao">Entre na sua conta</button>
+        <span id="resultado"></span>
+    </div>
+
+    <div id="container">
+
+    </div>
+    <script>
+
+        function Verificar() {
+
+            var senha = document.querySelectorAll(".senha");
+            var resultado = document.getElementById("resultado");
+            var containe= document.getElementById("container");
+            var quantidade = document.querySelectorAll(".senha").length;
+
+            if (senha === "") {
+                resultado.innerHTML =
+                    "Insira uma senha válida";
+
+            } else if (senha === "1234") {
+                resultado.innerHTML =
+                    "Senha correta!";
+
+            } else {
+
+                resultado.innerHTML =
+                    "Senha incorreta!";
+                container.innerHTML += `
+                <div>
+                    <span>
+                        Senha ${quantidade + 1}
+                    </span>
+                    <input class="senha"
+                    type="password">
+                </div>
+            `;}
+        }
+
+    </script>
+</body>
+
+</html>
