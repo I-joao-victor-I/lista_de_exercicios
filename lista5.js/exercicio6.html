@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 5 - exercício 6</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tabuada</h1>
+    </header>
+
+    <div class="secao">
+        <span>Insira um número:</span>
+        <input id="n1" type="number">
+        <button onclick="Verificar()">Ver média</button>
+        <span id="resultado"></span>
+    </div>
+    <div class="inputs"></div>
+    <script>
+        async function Verificar() {
+            const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
+            var n1 = document.getElementById("n1");
+            var resultado = document.getElementById("resultado");
+
+
+            if (n1.value == "") {
+                resultado.innerHTML = "Número inválido."
+            } else
+                for (let i = 0; i >= 10; i++) {
+                    
+
+
+                }
+        }
+    </script>
+</body>
+
+</html>

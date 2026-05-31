@@ -21,49 +21,12 @@
             var contagem = document.getElementById("contagem");
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
-            for (let i = 1; i <= 10; i++) {
+            for (let i = 10; i >= 0; i--) {
                 await delay(1000);
-                if (i === 1) {
-                    contagem.innerHTML = 10;
-                }
+                contagem.innerHTML = i;
 
-                if (i === 2) {
-                    contagem.innerHTML = 9;
-                }
 
-                if (i === 3) {
-                    contagem.innerHTML = 8;
-                }
-
-                if (i === 4) {
-                    contagem.innerHTML = 7;
-                }
-
-                if (i === 5) {
-                    contagem.innerHTML = 6;
-                }
-
-                if (i === 6) {
-                    contagem.innerHTML = 5;
-                }
-
-                if (i === 7) {
-                    contagem.innerHTML = 4;
-                }
-
-                if (i === 8) {
-                    contagem.innerHTML = 3;
-                }
-
-                if (i === 9) {
-                    contagem.innerHTML = 2;
-                }
-
-                if (i === 10) {
-                    contagem.innerHTML = 1;
-                }
-
-                if (i === 10) {
+                if (i === 0) {
                     await delay(1000);
                     alert("FOGO!!!!!");
                     contagem.innerHTML = "FOGO!!!!!";
