@@ -4,34 +4,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="reset.css">
     <title>Lista 5 - exercício 6</title>
 </head>
 
 <body>
-    <header>
+    <header class="cabecalho">
         <h1>Tabuada</h1>
+        <a href="./index.html"><img class="imagem" src="./icons8-home.svg" alt=""></a>
     </header>
 
     <div class="secao">
         <span>Insira um número:</span>
         <input id="n1" type="number">
-        <button onclick="Verificar()">Ver média</button>
-        <span id="resultado"></span>
+        <button class="botao" onclick="Verificar()">Ver tabuada</button>
+        
     </div>
-    <div class="inputs"></div>
+    <div id="resposta" class="resposta">
+    </div>
     <script>
         async function Verificar() {
             const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
-            var n1 = document.getElementById("n1");
-            var resultado = document.getElementById("resultado");
+            var n1 = Number(document.getElementById("n1").value);
+            var resposta = document.getElementById("resposta");
+            var multiplicacao
 
 
-            if (n1.value == "") {
-                resultado.innerHTML = "Número inválido."
+            if (n1 == 0) {
+                resposta.innerHTML = "Número inválido."
             } else
-                for (let i = 0; i >= 10; i++) {
-                    
-
+                for (let i = 0; i <= 10; i++) {
+                    await delay(1000)
+                    multiplicacao = n1 * i;
+                    resposta.innerHTML +=  `${n1} × ${i} = ${multiplicacao}<br>`; 
 
                 }
         }
