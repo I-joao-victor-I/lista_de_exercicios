@@ -67,3 +67,8 @@ input {
 .imagem:hover {
     transform: scale(1.2);
 }
+
+.logo{
+    width: 10%;
+    align-self: center;
+}
