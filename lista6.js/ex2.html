@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 6 - Exercício 2</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Lista de preços</h1>
+        <a href="./index.html"><img class="imagem" src="./icons8-home.svg" alt=""></a>
+    </header>
+    <div class="secao">
+        <span>Informe o preço de 6 produtos:</span>
+        <input class="caixa" id="p1" type="number">
+        <input class="caixa" id="p2" type="number">
+        <input class="caixa" id="p3" type="number">
+        <input class="caixa" id="p4" type="number">
+        <input class="caixa" id="p5" type="number">
+        <input class="caixa" id="p6" type="number">
+        <button class="botao" onclick="Verificar()">Verificar</button>
+        <span id="resultado"></span>
+    </div>
+
+    <script>
+        function Verificar() {
+            var resultado = document.getElementById("resultado");
+
+            var p1 = Number(document.getElementById("p1").value);
+            var p2 = Number(document.getElementById("p2").value);
+            var p3 = Number(document.getElementById("p3").value);
+            var p4 = Number(document.getElementById("p4").value);
+            var p5 = Number(document.getElementById("p5").value);
+            var p6 = Number(document.getElementById("p6").value);
+
+            var lista = [p1, p2, p3, p4, p5, p6];
+            var maior = lista[0];
+            var menor = lista[0];
+
+            if (p1 == "" || p2 == "" || p3 == "" || p4 == "" || p5 == "" || p6 == "") {
+                resultado.innerHTML = "Insira números válidos"
+
+            } else {
+                for (let i = 1; i < lista.length; i++) {
+                    if (lista[i] > maior) {
+                        maior = lista[i];
+                    }
+
+                    if (lista[i] < menor) {
+                        menor = lista[i];
+                    }
+                }
+
+                resultado.innerHTML = `O menor preço da lista é ${menor}, e o maior preço é ${maior}`;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

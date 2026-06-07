@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 6 - Exercício 4</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Placar da Copa do Mundo</h1>
+        <a href="./index.html"><img class="imagem" src="./icons8-home.svg" alt=""></a>
+    </header>
+
+    <div class="secao">
+        <span>Informe a quantidade de gols que cada time fez:</span>
+        <div class="linha">
+            <span>Brasil fez:</span>
+            <input class="caixa" id="n1" type="number">
+        </div>
+        <div class="linha">
+            <span>Haiti fez:</span>
+            <input class="caixa" id="n2" type="number">
+        </div>
+        <div class="linha">
+            <span>Marrocos fez:</span>
+            <input class="caixa" id="n3" type="number">
+        </div>
+        <div class="linha">
+            <span>Escócia fez:</span>
+            <input class="caixa" id="n4" type="number">
+        </div>
+        <div class="linha">
+            <span>Argentina fez:</span>
+            <input class="caixa" id="n5" type="number">
+        </div>
+        <button class="botao" onclick="Verificar()">Ver resultados</button>
+
+        <div class="secao">
+            <h2 id="r1"></h2>
+            <ul id="resultado"></ul>
+            <h2 id="r2"></h2>
+            <ul id="resultado2"></ul>
+            <span class="brasil" id="brasil"></span>
+        </div>
+    </div>
+
+    <script>
+
+
+
+        function Verificar() {
+            var resultado = document.getElementById("resultado");
+            var r1 = document.getElementById("r1");
+            var r2 = document.getElementById("r2");
+            var brasil = document.getElementById("brasil");
+            var resultado2 = document.getElementById("resultado2");
+            var n1 = Number(document.getElementById("n1").value);
+            var n2 = Number(document.getElementById("n2").value);
+            var n3 = Number(document.getElementById("n3").value);
+            var n4 = Number(document.getElementById("n4").value);
+            var n5 = Number(document.getElementById("n5").value);
+
+            resultado.innerHTML = "";
+            resultado2.innerHTML = "";
+            r1.innerHTML = "";
+            r2.innerHTML = "";
+            brasil.innerHTML = "";
+
+            var lista = [n1, n2, n3, n4, n5];
+            var nomes = ["Brasil", "Haiti", "Marrocos", "Escócia", "Argentina"];
+            var maior = [];
+            var menor = [];
+
+            if (n1.toString == "" || n2.toString == "" || n3.toString == "" || n4.toString == "" || n5.toString == "") {
+                resultado.innerHTML = "Insira números válidos";
+            } else {
+                for (let i = 0; i < lista.length; i++) {
+                    if (lista[i] >= 3) {
+                        maior.push(`${nomes[i]} com ${lista[i]} gols`);
+                    }
+
+                    if (lista[i] <= 2) {
+                        menor.push(`${nomes[i]} com ${lista[i]} gols`);
+                    }
+                }
+
+                if (maior[0] == undefined) {
+                    brasil.innerHTML = "A próxima copa é nossa!"
+                }
+                else if (maior[0].includes("Brasil")) {
+                    brasil.innerHTML = "VAAAMO BRAAAAAAASIIIIIIIIIIIL"
+                }
+
+                for (let i = 0; i < maior.length; i++) {
+                    r1.innerHTML = "Os que mais fizeram gols:"
+                    resultado.innerHTML += `<li>${maior[i]}</li>`;
+                }
+
+                for (let i = 0; i < menor.length; i++) {
+                    r2.innerHTML = "Os que menos fizeram gols:"
+                    resultado2.innerHTML += `<li>${menor[i]}</li>`;
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
