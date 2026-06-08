@@ -46,7 +46,8 @@ input {
     transition: 500ms;
 }
 
-.butao:hover, .botao:hover {
+.butao:hover,
+.botao:hover {
     background-color: red;
     transform: scale(1.2);
 }
@@ -68,7 +69,7 @@ input {
     transform: scale(1.2);
 }
 
-.logo{
+.logo {
     width: 10%;
     align-self: center;
 }

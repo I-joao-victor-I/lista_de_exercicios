@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 6 - Exercício 1</title>
+</head>
+
+<body>
+    <header>
+        <h1>Lista de compras</h1>
+    </header>
+
+    <div class="secao">
+        <span>Informe um item da lista de compras:</span>
+        <div class="inputs" id="container-inputs">
+            <input class="caixa" id="item-0" type="text">
+        </div>
+
+        <button onclick="Verificar()">Ver a lista</button>
+        <button onclick="Adicionar()">Adicionar um item</button>
+        <h3 id="texto"></h3>
+        <span id="resultado"></span>
+    </div>
+
+    <script>
+        var i = 1;
+
+        function Adicionar() {
+            var div = document.getElementById("container-inputs");
+
+            var novoInput = document.createElement("input"); 
+            novoInput.type = "text";
+            novoInput.className = "caixa";
+            novoInput.id = `item-${i}`;
+            
+            div.appendChild(novoInput); 
+            i++;
+        }
+
+        function Verificar() {
+            var lista = [];
+            var resultado = document.getElementById("resultado");
+            var texto = document.getElementById("texto")
+            var erro = false;
+
+            for (let j = 0; j < i; j++) {
+                var inputAtual = document.getElementById(`item-${j}`);
+
+                if (inputAtual && inputAtual.value.trim() !== "") {
+                    lista.push(inputAtual.value.trim());
+                } else {
+                    erro = true;
+                }
+            }
+
+            if (erro) {
+                resultado.innerHTML = "Preencha todos os campos antes de verificar.";
+            } else {
+                texto.innerHTML = `A quantidade de itens na lista é: ${i}`
+                resultado.innerHTML = `A lista é: ${lista.join(", ")}`;
+            }
+        } 
+    </script>
+</body>
+
+</html>
