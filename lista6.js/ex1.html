@@ -4,12 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="reset.css">
     <title>Lista 6 - Exercício 1</title>
 </head>
 
 <body>
-    <header>
+    <header class="cabecalho">
         <h1>Lista de compras</h1>
+        <a href="./index.html"><img class="imagem" src="./icons8-home.svg" alt=""></a>
     </header>
 
     <div class="secao">
@@ -18,8 +21,8 @@
             <input class="caixa" id="item-0" type="text">
         </div>
 
-        <button onclick="Verificar()">Ver a lista</button>
-        <button onclick="Adicionar()">Adicionar um item</button>
+        <button class="botao" onclick="Verificar()">Ver a lista</button>
+        <button class="botao" onclick="Adicionar()">Adicionar um item</button>
         <h3 id="texto"></h3>
         <span id="resultado"></span>
     </div>

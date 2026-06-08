@@ -1,0 +1,65 @@
+.cabecalho {
+    background-color: rgb(50, 0, 50);
+    display: flex;
+    padding: 20px;
+    max-height: 30%;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 10vh;
+}
+
+.secao {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.botao {
+    padding: 10px;
+    width: 20%;
+    background-color: black;
+    border: 2px, solid, black;
+    border-radius: 8px;
+    transition: 1.2s;
+}
+
+.botao:hover {
+    transform: scale(1.2);
+    background-color: rebeccapurple;
+}
+
+.caixa {
+    padding: 10px;
+    border: 2px, solid, black;
+    border-radius: 8px;
+    background-color: rgb(18, 18, 18);
+    max-width: 70%;
+}
+
+.inicio {
+    width: 100%;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.linha{
+    gap: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.imagem{
+    transition: 1.2s;
+}
+.imagem:hover{
+    transform: scale(1.3);
+}
