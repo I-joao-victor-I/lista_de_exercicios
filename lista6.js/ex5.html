@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista 6 - Exercício 5</title>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <h1>Cardápio de restaurante</h1>
+        <a href="./index.html"><img class="imagem" src="./icons8-home.svg" alt=""></a>
+    </header>
+    <div class="secao">
+        <ul class="cardapio">
+            <li>1. Frango Grelhado - R$ 32,50</li>
+            <li>2. Macarrão Bolonhesa - R$ 28,00</li>
+            <li>3. Peixe na Brasa - R$ 45,00</li>
+            <li>4. Salada Caesar - R$ 22,00</li>
+        </ul>
+        <span>Informe o número do prato:</span>
+        <input class="caixa" id="prato" type="number">
+        <span>Informe a quantidade:</span>
+        <input class="caixa" id="quantidade" type="number">
+        <button class="botao" onclick="Verificar()">Exibir resultado</button>
+        <span id="resultado"></span>
+    </div>
+
+    <script>
+        function Verificar() {
+            var prato = Number(document.getElementById("prato").value);
+            var quantidade = Number(document.getElementById("quantidade").value);
+            var resultado = document.getElementById("resultado")
+            var nome = ["Frango Grelhado", "Macarrão Bolonhesa", "Peixe na Brasa", "Salada Caesar"]
+            var preco = [32.50,28,45,22]
+
+
+            if (prato == ""|| quantidade == ""|| prato > 4) {
+                resultado.innerHTML = "Insira um número válido para a realização da compra."
+            } else {
+                prato--
+                let total = preco[prato] * quantidade
+                resultado.innerHTML = ` O prato escolhido é: ${nome[prato]} o valor da compra será: ${total}`
+            }
+        }
+    </script>
+</body>
+
+</html>
