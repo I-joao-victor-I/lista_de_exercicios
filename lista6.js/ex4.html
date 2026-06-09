@@ -44,40 +44,48 @@
             <ul id="resultado"></ul>
             <h2 id="r2"></h2>
             <ul id="resultado2"></ul>
-            <span class="brasil" id="brasil"></span>
+            <div id="divBrasil">
+                <span class="brasil" id="brasil"></span>
+            </div>
+
         </div>
     </div>
 
     <script>
-
-
-
         function Verificar() {
             var resultado = document.getElementById("resultado");
             var r1 = document.getElementById("r1");
             var r2 = document.getElementById("r2");
             var brasil = document.getElementById("brasil");
+            var divBrasil = document.getElementById("divBrasil");
             var resultado2 = document.getElementById("resultado2");
-            var n1 = Number(document.getElementById("n1").value);
-            var n2 = Number(document.getElementById("n2").value);
-            var n3 = Number(document.getElementById("n3").value);
-            var n4 = Number(document.getElementById("n4").value);
-            var n5 = Number(document.getElementById("n5").value);
+            var n1 = document.getElementById("n1").value;
+            var n2 = document.getElementById("n2").value;
+            var n3 = document.getElementById("n3").value;
+            var n4 = document.getElementById("n4").value;
+            var n5 = document.getElementById("n5").value;
 
             resultado.innerHTML = "";
             resultado2.innerHTML = "";
             r1.innerHTML = "";
             r2.innerHTML = "";
             brasil.innerHTML = "";
+            divBrasil.classList.remove("brasil")
 
             var lista = [n1, n2, n3, n4, n5];
             var nomes = ["Brasil", "Haiti", "Marrocos", "Escócia", "Argentina"];
             var maior = [];
             var menor = [];
 
-            if (n1.toString == "" || n2.toString == "" || n3.toString == "" || n4.toString == "" || n5.toString == "") {
+            if (n1 == "" || n2 == "" || n3 == "" || n4 == "" || n5 == "") {
                 resultado.innerHTML = "Insira números válidos";
             } else {
+                Number(n1);
+                Number(n2);
+                Number(n3);
+                Number(n4);
+                Number(n5);
+
                 for (let i = 0; i < lista.length; i++) {
                     if (lista[i] >= 3) {
                         maior.push(`${nomes[i]} com ${lista[i]} gols`);
@@ -88,10 +96,12 @@
                     }
                 }
 
-                if (maior[0] == undefined) {
+                if (maior[0] == undefined || menor[0].includes("Brasil")) {
+                    divBrasil.classList.add("brasil")
                     brasil.innerHTML = "A próxima copa é nossa!"
                 }
                 else if (maior[0].includes("Brasil")) {
+                    divBrasil.classList.add("brasil")
                     brasil.innerHTML = "VAAAMO BRAAAAAAASIIIIIIIIIIIL"
                 }
 
